@@ -375,33 +375,33 @@
 
                             <tr>
                                 <td>
-                                    <p style="padding: 0;margin: 0;text-align: left;font-size: 25px;font-weight: 500;">Añadir nueva cita.</p><br>
+                                    <p style="padding: 0;margin: 0;text-align: left;font-size: 25px;font-weight: 500;">Añadir nueva cita</p><br>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="label-td" colspan="2">
                                 <form action="añadir-sesion.php" method="POST" class="add-new-form">
-                                    <label for="title" class="form-label">Session Title : </label>
+                                    <label for="title" class="form-label">Cita: </label>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="label-td" colspan="2">
-                                    <input type="text" name="title" class="input-text" placeholder="Name of this Session" required><br>
+                                    <input type="text" name="title" class="input-text" placeholder="Nombre de la cita" required><br>
                                 </td>
                             </tr>
                             <tr>
                                 
                                 <td class="label-td" colspan="2">
-                                    <label for="docid" class="form-label">Select Doctor: </label>
+                                    <label for="docid" class="form-label">Selecciona a un doctor: </label>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="label-td" colspan="2">
                                     <select name="docid" id="" class="box" >
-                                    <option value="" disabled selected hidden>Choose Doctor Name from the list</option><br/>';
+                                    <option value="" disabled selected hidden>Elija el nombre del doctor de la lista</option><br/>';
                                         
         
-                                        $list11 = $bd->query("select  * from  doctor;");
+                                        $list11 = $bd->query("select  * from  doctor order by docname asc;");
         
                                         for ($y=0;$y<$list11->num_rows;$y++){
                                             $row00=$list11->fetch_assoc();
@@ -418,40 +418,40 @@
                             </tr>
                             <tr>
                                 <td class="label-td" colspan="2">
-                                    <label for="nop" class="form-label">Number of Patients/Appointment Numbers : </label>
+                                    <label for="nop" class="form-label">Número de reservaciones: </label>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="label-td" colspan="2">
-                                    <input type="number" name="nop" class="input-text" min="0"  placeholder="The final appointment number for this session depends on this number" required><br>
+                                    <input type="number" name="nop" class="input-text" min="0"  placeholder="El número de cita final para esta sesión depende de este número" required><br>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="label-td" colspan="2">
-                                    <label for="date" class="form-label">Session Date: </label>
+                                    <label for="date" class="form-label">Fecha: </label>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="label-td" colspan="2">
-                                    <input type="date" name="date" class="input-text" min="'.date('Y-m-d').'" required><br>
+                                    <input type="date" name="date" class="input-text" min="'.date('d-m-Y').'" required><br>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="label-td" colspan="2">
-                                    <label for="time" class="form-label">Schedule Time: </label>
+                                    <label for="time" class="form-label">Hora de inicio: </label>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="label-td" colspan="2">
-                                    <input type="time" name="time" class="input-text" placeholder="Time" required><br>
+                                    <input type="time" name="time" class="input-text" placeholder="Hora" required><br>
                                 </td>
                             </tr>
                            
                             <tr>
                                 <td colspan="2">
-                                    <input type="reset" value="Reset" class="login-btn btn-primary-soft btn" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <input type="reset" value="Restablecer" class="login-btn btn-primary-soft btn" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 
-                                    <input type="submit" value="Place this Session" class="login-btn btn-primary btn" name="shedulesubmit">
+                                    <input type="submit" value="Agregar cita" class="login-btn btn-primary btn" name="shedulesubmit">
                                 </td>
                 
                             </tr>
@@ -537,78 +537,7 @@
                             
                         </div>
                         <div style="display: flex;justify-content: center;">
-                        <table width="80%" class="sub-table scrolldown add-doc-form-container" border="0">
                         
-                            <tr>
-                                <td>
-                                    <p style="padding: 0;margin: 0;text-align: left;font-size: 25px;font-weight: 500;">View Details.</p><br><br>
-                                </td>
-                            </tr>
-                            
-                            <tr>
-                                
-                                <td class="label-td" colspan="2">
-                                    <label for="name" class="form-label">Name: </label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="label-td" colspan="2">
-                                    '.$name.'<br><br>
-                                </td>
-                                
-                            </tr>
-                            <tr>
-                                <td class="label-td" colspan="2">
-                                    <label for="Email" class="form-label">Email: </label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="label-td" colspan="2">
-                                '.$email.'<br><br>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="label-td" colspan="2">
-                                    <label for="nic" class="form-label">NIC: </label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="label-td" colspan="2">
-                                '.$nic.'<br><br>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="label-td" colspan="2">
-                                    <label for="Tele" class="form-label">Telephone: </label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="label-td" colspan="2">
-                                '.$tele.'<br><br>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="label-td" colspan="2">
-                                    <label for="spec" class="form-label">Specialties: </label>
-                                    
-                                </td>
-                            </tr>
-                            <tr>
-                            <td class="label-td" colspan="2">
-                            '.$spcil_name.'<br><br>
-                            </td>
-                            </tr>
-                            <tr>
-                                <td colspan="2">
-                                    <a href="doctores.php"><input type="button" value="OK" class="login-btn btn-primary-soft btn" ></a>
-                                
-                                    
-                                </td>
-                
-                            </tr>
-                           
-
-                        </table>
                         </div>
                     </center>
                     <br><br>
