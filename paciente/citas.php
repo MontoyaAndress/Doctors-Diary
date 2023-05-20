@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../css/main.css">  
     <link rel="stylesheet" href="../css/admin.css">
         
-    <title>Appointments</title>
+    <title>Citas</title>
     <style>
         .popup{
             animation: transitionIn-Y-bottom 0.5s;
