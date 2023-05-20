@@ -461,134 +461,135 @@
                 );
 
             if($error_1!='4'){
-                    echo '
-                    <div id="popup1" class="overlay">
-                            <div class="popup">
-                            <center>
-                            
-                                <a class="close" href="doctores.php">&times;</a> 
-                                <div style="display: flex;justify-content: center;">
-                                <div class="abc">
-                                <table width="80%" class="sub-table scrolldown add-doc-form-container" border="0">
+                echo '
+                <div id="popup1" class="overlay">
+                        <div class="popup">
+                        <center>
+                        
+                            <a class="close" href="doctores.php">&times;</a> 
+                            <div style="display: flex;justify-content: center;">
+                            <div class="abc">
+                            <table width="80%" class="sub-table scrolldown add-doc-form-container" border="0">
+                            <tr>
+                                    <td class="label-td" colspan="2">'.
+                                        $errorlist[$error_1]
+                                    .'</td>
+                                </tr>
                                 <tr>
-                                        <td class="label-td" colspan="2">'.
-                                            $errorlist[$error_1]
-                                        .'</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p style="padding: 0;margin: 0;text-align: left;font-size: 25px;font-weight: 500;">Edit Doctor Details.</p>
-                                        Doctor ID : '.$id.' (Auto Generated)<br><br>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="label-td" colspan="2">
-                                            <form action="edit-doc.php" method="POST" class="add-new-form">
-                                            <label for="Email" class="form-label">Email: </label>
-                                            <input type="hidden" value="'.$id.'" name="id00">
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="label-td" colspan="2">
-                                        <input type="email" name="email" class="input-text" placeholder="Email Address" value="'.$email.'" required><br>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        
-                                        <td class="label-td" colspan="2">
-                                            <label for="name" class="form-label">Name: </label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="label-td" colspan="2">
-                                            <input type="text" name="name" class="input-text" placeholder="Doctor Name" value="'.$name.'" required><br>
-                                        </td>
-                                        
-                                    </tr>
+                                    <td>
+                                        <p style="padding: 0;margin: 0;text-align: left;font-size: 25px;font-weight: 500;">Editar información del doctor</p>
+                                    Doctor ID : '.$id.' (Generado automáticamente)<br><br>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="label-td" colspan="2">
+                                        <form action="editar-doctor.php" method="POST" class="add-new-form">
+                                        <label for="Email" class="form-label">Email: </label>
+                                        <input type="hidden" value="'.$id.'" name="id00">
+                                        <input type="hidden" name="oldemail" value="'.$email.'" >
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="label-td" colspan="2">
+                                    <input type="email" name="email" class="input-text" placeholder="Email Address" value="'.$email.'" required><br>
+                                    </td>
+                                </tr>
+                                <tr>
                                     
-                                    <tr>
-                                        <td class="label-td" colspan="2">
-                                            <label for="nic" class="form-label">NIC: </label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="label-td" colspan="2">
-                                            <input type="text" name="nic" class="input-text" placeholder="NIC Number" value="'.$nic.'" required><br>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="label-td" colspan="2">
-                                            <label for="Tele" class="form-label">Telephone: </label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="label-td" colspan="2">
-                                            <input type="tel" name="Tele" class="input-text" placeholder="Telephone Number" value="'.$tele.'" required><br>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="label-td" colspan="2">
-                                            <label for="spec" class="form-label">Choose specialties: (Current'.$spcil_name.')</label>
-                                            
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="label-td" colspan="2">
-                                            <select name="spec" id="" class="box">';
-                                                
-                
-                                                $list11 = $bd->query("select  * from  specialties;");
-                
-                                                for ($y=0;$y<$list11->num_rows;$y++){
-                                                    $row00=$list11->fetch_assoc();
-                                                    $sn=$row00["sname"];
-                                                    $id00=$row00["id"];
-                                                    echo "<option value=".$id00.">$sn</option><br/>";
-                                                };
-                
-                
-                
-                                                
-                                echo     '       </select><br><br>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="label-td" colspan="2">
-                                            <label for="password" class="form-label">Password: </label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="label-td" colspan="2">
-                                            <input type="password" name="password" class="input-text" placeholder="Defind a Password" required><br>
-                                        </td>
-                                    </tr><tr>
-                                        <td class="label-td" colspan="2">
-                                            <label for="cpassword" class="form-label">Conform Password: </label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="label-td" colspan="2">
-                                            <input type="password" name="cpassword" class="input-text" placeholder="Conform Password" required><br>
-                                        </td>
-                                    </tr>
+                                    <td class="label-td" colspan="2">
+                                        <label for="name" class="form-label">Nombre: </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="label-td" colspan="2">
+                                        <input type="text" name="name" class="input-text" placeholder="Nombre del doctor" value="'.$name.'" required><br>
+                                    </td>
                                     
-                        
-                                    <tr>
-                                        <td colspan="2">
-                                            <input type="reset" value="Reset" class="login-btn btn-primary-soft btn" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        
-                                            <input type="submit" value="Save" class="login-btn btn-primary btn">
-                                        </td>
-                        
-                                    </tr>
+                                </tr>
                                 
-                                    </form>
-                                    </tr>
-                                </table>
-                                </div>
-                                </div>
-                            </center>
-                            <br><br>
+                                <tr>
+                                    <td class="label-td" colspan="2">
+                                        <label for="nic" class="form-label">NSS: </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="label-td" colspan="2">
+                                        <input type="text" name="nic" class="input-text" placeholder="NSS" value="'.$nic.'" required><br>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="label-td" colspan="2">
+                                        <label for="Tele" class="form-label">Teléfono: </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="label-td" colspan="2">
+                                        <input type="tel" name="Tele" class="input-text" placeholder="Número de teléfono" value="'.$tele.'" required><br>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="label-td" colspan="2">
+                                        <label for="spec" class="form-label">Elige una especialidad: (Current'.$spcil_name.')</label>
+                                        
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="label-td" colspan="2">
+                                        <select name="spec" id="" class="box">';
+                                            
+            
+                                            $list11 = $bd->query("select  * from  specialties;");
+            
+                                            for ($y=0;$y<$list11->num_rows;$y++){
+                                                $row00=$list11->fetch_assoc();
+                                                $sn=$row00["sname"];
+                                                $id00=$row00["id"];
+                                                echo "<option value=".$id00.">$sn</option><br/>";
+                                            };
+            
+            
+            
+                                            
+                            echo     '       </select><br><br>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="label-td" colspan="2">
+                                        <label for="password" class="form-label">Contraseña: </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="label-td" colspan="2">
+                                        <input type="password" name="password" class="input-text" placeholder="Ingresa una contraseña" required><br>
+                                    </td>
+                                </tr><tr>
+                                    <td class="label-td" colspan="2">
+                                        <label for="cpassword" class="form-label">Confirmar contraseña: </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="label-td" colspan="2">
+                                        <input type="password" name="cpassword" class="input-text" placeholder="Confirma la contraseña" required><br>
+                                    </td>
+                                </tr>
+                                
+                    
+                                <tr>
+                                    <td colspan="2">
+                                        <input type="reset" value="Restablecer" class="login-btn btn-primary-soft btn" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    
+                                        <input type="submit" value="Guardar" class="login-btn btn-primary btn">
+                                    </td>
+                    
+                                </tr>
+                            
+                                </form>
+                                </tr>
+                            </table>
+                            </div>
+                            </div>
+                        </center>
+                        <br><br>
                     </div>
                     </div>
                     ';
