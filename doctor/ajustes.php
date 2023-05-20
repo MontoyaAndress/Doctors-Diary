@@ -10,7 +10,7 @@
         
 
 
-    <title>Settings</title>
+    <title>Ajustes</title>
     <style>
         .dashbord-tables{
             animation: transitionIn-Y-over 0.5s;
